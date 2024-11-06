@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+    //Code to use the keppad ENTER to submit
+
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    });
 
     runGame("addition");
 
@@ -24,6 +31,11 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+  // To clear the answer box for next use
+    document.getElementById("answer-box").value = "";
+
+    //To make sure that the curso is inide the answer box for next use
+    document.getElementById("answer-box").focus();
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
